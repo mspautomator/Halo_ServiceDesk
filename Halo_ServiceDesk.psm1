@@ -11,7 +11,7 @@
 
 $Global:TokenFile = "C:\.HaloAPI\Token.log"
 $Global:HaloUrl
-$Global:RawUser = "HaloAPI"
+$Global:RawUser
 $Global:ClientID
 $Global:ClientSecret
 
@@ -98,7 +98,9 @@ function Get-Token
 		[Parameter(Mandatory = $true)]
 		[string]$ClientSecret,
 		[Parameter(Mandatory = $true)]
-		[string]$HaloUrl
+		[string]$HaloUrl,
+		[Parameter(Mandatory = $true)]
+		[string]$RawUser
 	)
 	
 	try
@@ -133,7 +135,7 @@ function Read-Token
 	{
 		if (-Not (Test-Path -Path $TokenFile))
 		{
-			Connect-HaloPSA -ClientID $ClientID -ClientSecret $ClientSecret
+			Connect-HaloPSA -ClientID $ClientID -ClientSecret $ClientSecret -HaloUrl $HaloUrl -RawUser $RawUser
 		}
 		
 		$Token = Get-Content -Path $TokenFile -EA Stop | ConvertFrom-Json
@@ -665,7 +667,9 @@ function Connect-HaloPSA
 		[Parameter(Mandatory = $true)]
 		[string]$ClientSecret,
 		[Parameter(Mandatory = $true)]
-		[string]$HaloUrl
+		[string]$HaloUrl,
+		[Parameter(Mandatory = $true)]
+		[string]$RawUser
 	)
 	
 	try
@@ -673,7 +677,7 @@ function Connect-HaloPSA
 		Write-Log "Authenticating with API"
 		if (-Not (Check-Token))
 		{
-			Get-Token -ClientID $ClientID -ClientSecret $ClientSecret -HaloUrl $HaloUrl -EA Stop
+			Get-Token -ClientID $ClientID -ClientSecret $ClientSecret -HaloUrl $HaloUrl -RawUser $RawUser Stop
 		}
 	}
 	catch
