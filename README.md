@@ -5,16 +5,9 @@ This was my first attempt at a HaloPSA REST wrapper for use in automation. I've 
 
 Cmdlets:
 
-Connect-HaloPSA
-.SYNOPSIS
-	Connects to HaloPSA and gets a bearer token.
-.EXAMPLE
-	PS C:\> Connect-HaloPSA -ClientID "<your client ID>" -ClientSecret "<your client secret>"	
-.NOTES
-	This module requires you configure your HaloAPI integration to post as a user.
+Connect-HaloPSA - Connects to HaloPSA and gets a bearer token.
 
-Get-Token
-.SYNOPSIS
-	Gets a bearer token via REST API .
-.EXAMPLE
-	PS C:\> Get-Token -ClientID 'value1' -ClientSecret 'value2'
+Example: Connect-HaloPSA -ClientID "<your client ID>" -ClientSecret "<your client secret>"
+
+Get-Token - Gets a bearer token via REST API .
+Example: Get-Token -ClientID 'value1' -ClientSecret 'value2'
