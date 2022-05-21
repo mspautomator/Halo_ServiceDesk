@@ -3,7 +3,11 @@ Powershell wrapper for HaloPSA REST API
 
 This was my first attempt at a HaloPSA REST wrapper for use in automation. I've moved on to a more advanced version internally so I'm making my (working) v1 code available for anyone who might need some basic functionality.
 
-Cmdlets:
+Installation
+------------
+Create a folder on your Hybrid worker: C:\Program Files\WindowsPowerShell\Modules\Halo_ServiceDesk
+Place the psd1 and psm1 file in that folder
+Import-Module Halo_ServiceDesk
 
 Connect-HaloPSA - Connects to HaloPSA and gets a bearer token.
 --------------------------------------------------------------------------------------------
