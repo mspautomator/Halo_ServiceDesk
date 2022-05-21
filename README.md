@@ -11,7 +11,7 @@ Import-Module Halo_ServiceDesk
 
 Connect-HaloPSA - Connects to HaloPSA and gets a bearer token.
 --------------------------------------------------------------------------------------------
-  Example: Connect-HaloPSA -ClientID "<your client ID>" -ClientSecret "<your client secret>"
+  Example: Connect-HaloPSA -ClientID "your client ID" -ClientSecret "your client secret" -Halourl "your halo base url"
 
 Get-Token - Gets a bearer token via REST API .
 --------------------------------------------------------------------------------------------  
